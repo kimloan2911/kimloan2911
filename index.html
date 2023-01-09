@@ -1,138 +1,188 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
+
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project 3</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Trang chủ - Du lịch Hà Nội</title>
+    <meta name="keywords">
+    <meta name="google-site-verification" content="Q8n2qJtYbJDBhq19H8jKm7xXPHQq_iBNw1cCQwhSpxY" />
+    <meta name="description"
+        content="Du lịch Hà Nội có những cẩm nang hữu ích gì. Cùng xem những điều cần biết và chuẩn bị trước khi bắt đầu chuyến đi của bạn tại đây.">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             text-align: center;
-            margin: 0;
-            background-color: rgb(247, 233, 208);
-            margin: 10px;
-        }
-        .row p {
+            width: 100%;
+            height: auto;
+            margin: auto;
             display: inline-block;
         }
-        .form__label {
-            min-width: 90px;
+
+        ul {
+            padding-inline-start: 0px;
+            padding: 40px;
+            margin-block-end: 0;
+            margin-block-start: 0;
+            color: rgb(97, 89, 104);
+            width: 100%;
         }
-        table th,
-        td {
-            border: 1px solid black;
+
+        li {
+            font-size: 30px;
         }
-        button {
-            background-color: rgb(51, 51, 151);
-            color: whitesmoke;
+
+        li a {
+            margin: 40px;
+            margin-inline-start: -10px;
         }
-        .intro {
-            color: red;
+
+        header a:link {
+            text-decoration: none;
+        }
+
+        header a:hover {
+            color: rgb(153, 63, 78);
+            text-decoration: underline;
+        }
+
+        #slideshow {
+            overflow: hidden;
+            height: 510px;
+            width: 728px;
+            margin: 0 auto;
+        }
+
+        .slide-wrapper {
+            width: 2912px;
+            -webkit-animation: slide 14s ease infinite;
+        }
+
+        .slide {
+            float: left;
+            height: 510px;
+            width: 728px;
+        }
+
+        @-webkit-keyframes slide {
+            20% {
+                margin-left: 0px;
+            }
+
+            30% {
+                margin-left: -728px;
+            }
+
+            50% {
+                margin-left: -728px;
+            }
+
+            60% {
+                margin-left: -1456px;
+            }
+
+            80% {
+                margin-left: -1456px;
+            }
+        }
+
+        .socials-share {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .socials-share a {
+            padding: 4px 30px;
+            color: #fff;
+            line-height: 2em;
+            text-decoration: none;
+            border-radius: 2px;
+            white-space: nowrap;
+            display: inline-block;
+            margin-bottom: 4px;
+        }
+
+        .socials-share span.fa {
+            margin-right: 3px;
+        }
+
+        .bg-facebook {
+            background: #3a5899;
+        }
+
+        .bg-facebook:hover,
+        .bg-facebook:focus {
+            background: #1d418d;
+        }
+
+        .bg-email {
+            background: #dd5348;
+        }
+
+        .bg-email:hover,
+        .bg-email:focus {
+            background: #ce3f34;
+        }
+
+        footer {
+            display: inline-block;
+            background-color: burlywood;
         }
     </style>
-</head>
-<body>
-    <div>
-        <h1>Class Marksheet</h1>
-        <div class="row">
-            <div>
-                <p class="form__label">Họ tên</p>
-                <input autocomplete="off" type="text" id="name">
-            </div>
-            <div>
-                <p class="form__label">Điểm toán</p>
-                <input autocomplete="off" type="number" id="math">
-            </div>
-            <div>
-                <p class="form__label">Điểm lý</p>
-                <input autocomplete="off" type="number" id="physical">
-            </div>
-            <div>
-                <p class="form__label">Điểm hóa</p>
-                <input autocomplete="off" type="number" id="chemistry">
-            </div>
-        </div><br>
-        <button id="nhap">Nhập</button>
-    </div><br>
-    <table style="width: 100%;" id="myTable">
-        <tr>
-            <th class="col-s-1 col-1">STT</th>
-            <th class="col-s-2 col-2">Họ tên</th>
-            <th  class="col-s-2 col-2">Toán</th>
-            <th  class="col-s-2 col-2">Lý</th>
-            <th  class="col-s-2 col-2">Hóa</th>
-            <th  class="col-s-2 col-2">Trung bình</th>
-            <th class="col-s-1 col-1">Select</th>
-        </tr>
-    </table>
-    <br>
-    <button id="dtb">Tính điểm trung bình</button>
-    <button id="hsg">Xác định học sinh giỏi</button>
-    <button id="delete-row">Xóa</button>
-    <!--đoạn Javascript-->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VJ4D3JKZKQ"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MDCKMNGVW1"></script>
     <script>
-        //nhập thông tin đầu vào cho ô input
-        $(document).ready(function(){
-            var index = 0; 
-            $("#nhap").click(function() {
-                var name = $("#name").val();
-                var math = $("#math").val();
-                var physical = $("#physical").val();
-                var chemistry = $("#chemistry").val();
-                // Validate cho form
-                if (name == "" || math == "" || physical == "" || chemistry == ""){
-                    return false;
-                }
-                //Xóa form nhập liệu
-                index++
-                $("#name").val("");
-                $("#math").val("");
-                $("#physical").val("");
-                $("#chemistry").val("");
-                //Thông tin nhập vào sẽ được thêm vào bảng
-                $("#myTable").append(`<tr> <td>${index}</td> <td>${name}</td> <td>${math}</td> <td>${physical}</td> <td>${chemistry}</td>  
-                    <td>?</td> <td>${"<input type='checkbox' name='xoa_hang'>"}</td></tr>`);
-            });    
-            //Tính điểm trung bình 
-            $("#dtb").click(function(){
-                var index = 1;
-                index++
-                $("tbody tr").each(function(index) {
-                    var math = Number($(this).children("td").eq(2).html());
-                    var physical = Number($(this).children("td").eq(3).html());
-                    var chemistry = Number($(this).children("td").eq(4).html());
-                    var dtb = (parseFloat(math) + parseFloat(physical) + parseFloat(chemistry))/ 3;
-                    var in_dtb = dtb.toFixed(1);
-                $("in_dtb").val($(this).children("td").eq(5).html(dtb.toFixed(1)));
-                });
-            });
-            //Xác định học sinh giỏi
-            $("#hsg").click(function(){
-                var index = 1;
-                index++
-                $("tbody tr").each(function(index) {
-                    if ($(this).children("td").eq(5).text()>= 8.0) {
-                        $(this).children("td").addClass("intro");
-                    }
-                });  
-            }); 
-            // Tìm và xóa hàng được chọn
-            $("#delete-row").click(function () {
-                index--
-                $("table tbody").find('input[name="xoa_hang"]').each(function () {
-                    if ($(this).is(":checked")) {
-                        $(this).parents("tr").remove();
-                    }
-                });
-                $("table tbody tr").not(":first-child").each(function (idx) {
-                    $(this).children("td").eq(0).html(idx + 1);
-                });
-            }); 
-        });
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-MDCKMNGVW1');
     </script>
-    <!--đoạn Javascript-->
+</head>
+
+<body>
+    <header style="background-color: rgb(230, 230, 198);">
+        <ul style="font-weight: bold; list-style: none; display: flex; justify-content: center;">
+            <li><a href="./index.html">Trang chủ</a></li>
+            <li><a href="./Gioi_thieu.html">Giới thiệu</a></li>
+            <li><a href="./Cam_nang.html">Cẩm nang du lịch</a></li>
+            <li><a href="./Du_lich.html">Địa danh</a></li>
+            <li><a href="./Am_thuc.html">Ẩm thực</a></li>
+        </ul>
+    </header>
+    <content>
+        <h3 style="font-size: 30px;">Hà Nội, muôn vàn lý do để bạn yêu</h3>
+        <div id="slideshow">
+            <div class="slide-wrapper">
+                <div class="slide"><img
+                        src="https://phunugioi.com/wp-content/uploads/2020/10/anh-cau-ha-noi-820x547.jpg">
+                </div>
+                <div class="slide"><img
+                        src="https://phunugioi.com/wp-content/uploads/2020/10/anh-bao-tang-ha-noi-820x547.jpg"></div>
+                <div class="slide"><img
+                        src="https://phunugioi.com/wp-content/uploads/2020/10/hinh-anh-ha-noi-ho-tay-ve-dem-820x548.jpg">
+                </div>
+            </div>
+        </div>
+        <br><br>
+        <div class="socials-share">
+            <a class="bg-facebook" href="" target="_blank"><span class="fa fa-facebook"></span> Share</a>
+            <a class="bg-email" href="" target="_blank"><span class="fa fa-envelope"></span> Gmail</a>
+        </div>
+    </content>
+    <footer style="text-align: center; width: 100%; font-size: 25px;">
+        <h3>Địa chỉ:</h3>
+        <p> Trần Quang Diệu, Ô Chợ Dừa, Đống Đa, Hà Nội</p>
+        <h3>EMAIL</h3>
+        <p>danhthangquehuongasm4@gmail.com</p>
+    </footer>
 </body>
+
 </html>
